@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./home.module.css";
 import Card from "../../components/shared/card/Card";
 import Button from "../../components/shared/button/Button";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 export default function Home() {
   const sign = {
     color:"#0077ff",
@@ -10,6 +10,13 @@ export default function Home() {
     textDecoration:'none',
     marginLeft:'3px'
 
+  }
+
+  const history = useHistory();
+
+  function startRegister(){
+    history.push('/register');
+    // console.log("button clicked");
   }
   return (
     <div className={styles.cardwraper}>
@@ -21,7 +28,7 @@ export default function Home() {
         </p>
 
         <div>
-          <Button text="Get your username"/>
+          <Button onclick={startRegister} text="Get your username"/>
         </div>
         <div className={styles.signin}>
           <span className={styles.invite}>Have an invite text?</span>
